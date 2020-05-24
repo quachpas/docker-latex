@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 MAINTAINER Pascal Quach <pascal.quach.utc@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PLANTUML_JAR=/usr/bin/plantuml
+ENV PLANTUML_JAR=~/plantuml.jar
 
 # Install.
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
@@ -12,4 +12,6 @@ texlive-latex-extra \
 texlive-luatex \
 texlive-lang-all \
 plantuml \
-inkscape
+inkscape \
+curl
+RUN cd ~/ && curl https://netcologne.dl.sourceforge.net/project/plantuml/plantuml.jar
