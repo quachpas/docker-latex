@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PLANTUML_JAR=~/plantuml.jar
 
 # Install.
+RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository ppa:inkscape.dev/stable 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
 texlive \
 texlive-latex-recommended \
@@ -13,5 +14,5 @@ texlive-luatex \
 texlive-lang-all \
 plantuml \
 inkscape \
-curl
-RUN cd ~/ && curl https://netcologne.dl.sourceforge.net/project/plantuml/plantuml.jar
+wget
+RUN cd ~/ && wget https://netcologne.dl.sourceforge.net/project/plantuml/plantuml.jar
